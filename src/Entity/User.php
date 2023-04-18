@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -33,6 +35,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
+
+    #[ORM\OneToMany(mappedBy: 'userId', targetEntity: Avis::class, orphanRemoval: true)]
+    private Collection $avisId;
+
+    public function __construct()
+    {
+        $this->avisId = new ArrayCollection();
+    }
 
 //    #[ORM\Column(type: Types::DATE_MUTABLE)]
 //    private ?\DateTimeInterface $dateDeNaissance = null;
@@ -157,4 +167,34 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 //
 //        return $this;
 //    }
+
+/**
+ * @return Collection<int, Avis>
+ */
+public function getAvisId(): Collection
+{
+    return $this->avisId;
+}
+
+public function addAvisId(Avis $avisId): self
+{
+    if (!$this->avisId->contains($avisId)) {
+        $this->avisId->add($avisId);
+        $avisId->setUserId($this);
+    }
+
+    return $this;
+}
+
+public function removeAvisId(Avis $avisId): self
+{
+    if ($this->avisId->removeElement($avisId)) {
+        // set the owning side to null (unless already changed)
+        if ($avisId->getUserId() === $this) {
+            $avisId->setUserId(null);
+        }
+    }
+
+    return $this;
+}
 }
