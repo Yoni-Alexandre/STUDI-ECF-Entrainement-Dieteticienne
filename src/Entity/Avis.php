@@ -14,12 +14,6 @@ class Avis
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $recetteId = null;
-
-    #[ORM\Column]
-    private ?int $patientId = null;
-
     #[ORM\Column(type: Types::TEXT)]
     private ?string $commentaire = null;
 
@@ -29,30 +23,6 @@ class Avis
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getRecetteId(): ?int
-    {
-        return $this->recetteId;
-    }
-
-    public function setRecetteId(int $recetteId): self
-    {
-        $this->recetteId = $recetteId;
-
-        return $this;
-    }
-
-    public function getPatientId(): ?int
-    {
-        return $this->patientId;
-    }
-
-    public function setPatientId(int $patientId): self
-    {
-        $this->patientId = $patientId;
-
-        return $this;
     }
 
     public function getCommentaire(): ?string
