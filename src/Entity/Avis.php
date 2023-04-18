@@ -20,9 +20,6 @@ class Avis
     #[ORM\Column]
     private ?int $note = null;
 
-    #[ORM\ManyToOne(inversedBy: 'avisId')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $userId = null;
 
     public function getId(): ?int
     {
@@ -53,15 +50,4 @@ class Avis
         return $this;
     }
 
-    public function getUserId(): ?User
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(?User $userId): self
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
 }

@@ -36,13 +36,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\OneToMany(mappedBy: 'userId', targetEntity: Avis::class, orphanRemoval: true)]
-    private Collection $avisId;
-
-    public function __construct()
-    {
-        $this->avisId = new ArrayCollection();
-    }
 
 //    #[ORM\Column(type: Types::DATE_MUTABLE)]
 //    private ?\DateTimeInterface $dateDeNaissance = null;
@@ -168,33 +161,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 //        return $this;
 //    }
 
-/**
- * @return Collection<int, Avis>
- */
-public function getAvisId(): Collection
-{
-    return $this->avisId;
-}
-
-public function addAvisId(Avis $avisId): self
-{
-    if (!$this->avisId->contains($avisId)) {
-        $this->avisId->add($avisId);
-        $avisId->setUserId($this);
-    }
-
-    return $this;
-}
-
-public function removeAvisId(Avis $avisId): self
-{
-    if ($this->avisId->removeElement($avisId)) {
-        // set the owning side to null (unless already changed)
-        if ($avisId->getUserId() === $this) {
-            $avisId->setUserId(null);
-        }
-    }
-
-    return $this;
-}
 }
