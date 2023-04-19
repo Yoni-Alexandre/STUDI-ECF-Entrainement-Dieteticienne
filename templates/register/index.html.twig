@@ -3,8 +3,14 @@
 {% block title %}Sandrine Coupart - Inscription{% endblock %}
 
 {% block body %}
-    <h1 class="ml-5">Inscription</h1>
-    <div class="ml-5 mr-5">
-    {{ form(form) }}
-    </div>
+    <main class="main">
+        <h1 class="ml-5">Inscription</h1>
+        <div class="ml-5 mr-5 mt-5">
+        {{ form(form) }}
+        </div>
+        <div>
+            {# Pensez à créer le lien vers la page connexion #}
+            <a href="{#  {{ path('') }} #}" class="ml-5">Déjà inscrit ? Connectez-vous !</a>
+        </div>
+    </main>
 {% endblock %}
