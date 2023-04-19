@@ -16,8 +16,12 @@ class RecetteAllergene
     #[ORM\Column]
     private ?int $recetteId = null;
 
-    #[ORM\Column]
-    private ?int $allergeneId = null;
+
+    #[ORM\ManyToOne(inversedBy: 'recetteAllergene')]
+    private ?Recette $recette = null;
+
+    #[ORM\ManyToOne(inversedBy: 'recetteAllergene')]
+    private ?Allergene $allergene = null;
 
     public function getId(): ?int
     {
@@ -36,14 +40,26 @@ class RecetteAllergene
         return $this;
     }
 
-    public function getAllergeneId(): ?int
+    public function getRecette(): ?Recette
     {
-        return $this->allergeneId;
+        return $this->recette;
     }
 
-    public function setAllergeneId(int $allergeneId): self
+    public function setRecette(?Recette $recette): self
     {
-        $this->allergeneId = $allergeneId;
+        $this->recette = $recette;
+
+        return $this;
+    }
+
+    public function getAllergene(): ?Allergene
+    {
+        return $this->allergene;
+    }
+
+    public function setAllergene(?Allergene $allergene): self
+    {
+        $this->allergene = $allergene;
 
         return $this;
     }

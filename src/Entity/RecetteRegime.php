@@ -16,8 +16,12 @@ class RecetteRegime
     #[ORM\Column]
     private ?int $recetteId = null;
 
-    #[ORM\Column]
-    private ?int $RegimeId = null;
+
+    #[ORM\ManyToOne(inversedBy: 'recetteRegime')]
+    private ?Recette $recette = null;
+
+    #[ORM\ManyToOne(inversedBy: 'recetteRegime')]
+    private ?Regime $regime = null;
 
     public function getId(): ?int
     {
@@ -36,14 +40,26 @@ class RecetteRegime
         return $this;
     }
 
-    public function getRegimeId(): ?int
+    public function getRecette(): ?Recette
     {
-        return $this->RegimeId;
+        return $this->recette;
     }
 
-    public function setRegimeId(int $RegimeId): self
+    public function setRecette(?Recette $recette): self
     {
-        $this->RegimeId = $RegimeId;
+        $this->recette = $recette;
+
+        return $this;
+    }
+
+    public function getRegime(): ?Regime
+    {
+        return $this->regime;
+    }
+
+    public function setRegime(?Regime $regime): self
+    {
+        $this->regime = $regime;
 
         return $this;
     }

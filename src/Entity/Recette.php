@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RecetteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -37,6 +39,22 @@ class Recette
 
     #[ORM\Column]
     private ?bool $estPrivee = null;
+
+    #[ORM\OneToMany(mappedBy: 'recette', targetEntity: Avis::class, orphanRemoval: true)]
+    private Collection $avis;
+
+    #[ORM\OneToMany(mappedBy: 'recette', targetEntity: RecetteRegime::class)]
+    private Collection $recetteRegime;
+
+    #[ORM\OneToMany(mappedBy: 'recette', targetEntity: RecetteAllergene::class)]
+    private Collection $recetteAllergene;
+
+    public function __construct()
+    {
+        $this->avis = new ArrayCollection();
+        $this->recetteRegime = new ArrayCollection();
+        $this->recetteAllergene = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -135,6 +153,96 @@ class Recette
     public function setEstPrivee(bool $estPrivee): self
     {
         $this->estPrivee = $estPrivee;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Avis>
+     */
+    public function getAvis(): Collection
+    {
+        return $this->avis;
+    }
+
+    public function addAvi(Avis $avi): self
+    {
+        if (!$this->avis->contains($avi)) {
+            $this->avis->add($avi);
+            $avi->setRecette($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvi(Avis $avi): self
+    {
+        if ($this->avis->removeElement($avi)) {
+            // set the owning side to null (unless already changed)
+            if ($avi->getRecette() === $this) {
+                $avi->setRecette(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, RecetteRegime>
+     */
+    public function getRecetteRegime(): Collection
+    {
+        return $this->recetteRegime;
+    }
+
+    public function addRecetteRegime(RecetteRegime $recetteRegime): self
+    {
+        if (!$this->recetteRegime->contains($recetteRegime)) {
+            $this->recetteRegime->add($recetteRegime);
+            $recetteRegime->setRecette($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecetteRegime(RecetteRegime $recetteRegime): self
+    {
+        if ($this->recetteRegime->removeElement($recetteRegime)) {
+            // set the owning side to null (unless already changed)
+            if ($recetteRegime->getRecette() === $this) {
+                $recetteRegime->setRecette(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, RecetteAllergene>
+     */
+    public function getRecetteAllergene(): Collection
+    {
+        return $this->recetteAllergene;
+    }
+
+    public function addRecetteAllergene(RecetteAllergene $recetteAllergene): self
+    {
+        if (!$this->recetteAllergene->contains($recetteAllergene)) {
+            $this->recetteAllergene->add($recetteAllergene);
+            $recetteAllergene->setRecette($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecetteAllergene(RecetteAllergene $recetteAllergene): self
+    {
+        if ($this->recetteAllergene->removeElement($recetteAllergene)) {
+            // set the owning side to null (unless already changed)
+            if ($recetteAllergene->getRecette() === $this) {
+                $recetteAllergene->setRecette(null);
+            }
+        }
 
         return $this;
     }

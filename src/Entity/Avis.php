@@ -20,6 +20,14 @@ class Avis
     #[ORM\Column]
     private ?int $note = null;
 
+    #[ORM\ManyToOne(inversedBy: 'avis')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'avis')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Recette $recette = null;
+
 
     public function getId(): ?int
     {
@@ -46,6 +54,30 @@ class Avis
     public function setNote(int $note): self
     {
         $this->note = $note;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getRecette(): ?Recette
+    {
+        return $this->recette;
+    }
+
+    public function setRecette(?Recette $recette): self
+    {
+        $this->recette = $recette;
 
         return $this;
     }

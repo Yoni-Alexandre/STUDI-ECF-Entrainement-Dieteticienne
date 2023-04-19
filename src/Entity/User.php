@@ -36,6 +36,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Avis::class, orphanRemoval: true)]
+    private Collection $avis;
+
+    public function __construct()
+    {
+        $this->avis = new ArrayCollection();
+    }
+
 
 //    #[ORM\Column(type: Types::DATE_MUTABLE)]
 //    private ?\DateTimeInterface $dateDeNaissance = null;
@@ -160,5 +168,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 //
 //        return $this;
 //    }
+
+/**
+ * @return Collection<int, Avis>
+ */
+public function getAvis(): Collection
+{
+    return $this->avis;
+}
+
+public function addAvi(Avis $avi): self
+{
+    if (!$this->avis->contains($avi)) {
+        $this->avis->add($avi);
+        $avi->setUser($this);
+    }
+
+    return $this;
+}
+
+public function removeAvi(Avis $avi): self
+{
+    if ($this->avis->removeElement($avi)) {
+        // set the owning side to null (unless already changed)
+        if ($avi->getUser() === $this) {
+            $avi->setUser(null);
+        }
+    }
+
+    return $this;
+}
 
 }
