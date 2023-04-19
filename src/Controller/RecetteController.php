@@ -20,8 +20,6 @@ class RecetteController extends AbstractController
     {
         $recette = $this->entityManager->getRepository(Recette::class)->findAll();
 
-
-
         return $this->render('recette/index.html.twig', [
             'recette' => $recette,
         ]);

@@ -17,7 +17,7 @@
 <body>
 
 {# **** HEADER ****#}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="sticky-top navbar-custom navbar navbar-expand-lg navbar-light mt-2 ">
     <a class="navbar-brand" href="{{ path('app_accueil') }}">Sandrine Coupart</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
                 <a class="nav-link" href="{{ path('app_accueil') }}">Accueil<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Les recettes<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('app_recette') }}">Les recettes<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">Tarifs<span class="sr-only">(current)</span></a>
@@ -59,21 +59,22 @@
 {% endblock %}
 
 {# **** FOOTER **** #}
-<footer class="container py-5">
+<footer class="text-center colorSection py-5">
     <div class="row">
-        <div class="col-12 col-md">
-            <p>Sandrine Coupart</p>
+        <div class="ml-5 col-12 col-md">
+            <h5>Sandrine Coupart</h5>
             <small class="d-block mb-3 text-body-secondary">Yoni-Alexandre Brault ©2023</small>
         </div>
         <div class="col-6 col-md">
             <h5>À propos</h5>
             <ul class="list-unstyled text-small">
                 <li><a class="link-secondary" href="#">Cool stuff</a></li>
+            </ul>
         </div>
         <div class="col-6 col-md">
             <h5>Mes services</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="link-secondary" href="#">Les recettes</a></li>
+                <li><a class="link-secondary" href="{{ path('app_recette') }}">Les recettes</a></li>
                 <li><a class="link-secondary" href="#">Les astuces</a></li>
             </ul>
         </div>
@@ -83,17 +84,18 @@
                 <li><a class="link-secondary" href="#">Contactez-moi</a></li>
             </ul>
         </div>
-        <div class="col-6 col-md">
+        <div class="mr-5 col-6 col-md">
             <h5>Mentions légales </h5>
             <ul class="list-unstyled text-small">
-                <li><a class="link-secondary" href="#">Politique de confidentialité</a></li>
+                <li><a class="link-secondary" href="{{ path('app_mentions_legales') }}">Mentions légales</a></li>
+                <li><a class="link-secondary" href="{{ path('app_rgpd') }}">Politique de confidentialité</a></li>
             </ul>
         </div>
     </div>
 </footer>
 
 {% block js %}
-    <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 {% endblock %}
     </body>
 </html>

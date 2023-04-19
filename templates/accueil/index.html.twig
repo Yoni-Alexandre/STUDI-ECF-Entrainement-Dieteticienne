@@ -7,8 +7,14 @@
 {% endblock %}
 
 {% block body %}
-    <main class="main">
-        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
+    <main>
+
+        <div class="position-absolute top-50 start-50 translate-middle w-100 h-100">
+            <div class="overlay"></div>
+            <img src="{{ asset('uploads/images/taco-gdb450d472_1920.png') }}" alt="Logo Sandrine Coupart Diététicienne" class="img-fluid w-100 h-100">
+        </div>
+
+        <div class="presentation position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
             <div class="col-md-5 p-lg-5 mx-auto my-5">
                 <div id="app">
                     <div id="hero">
@@ -16,24 +22,24 @@
                     </div>
                 </div>
                 <br>
-                <p class="fw-normal">Diététicienne-Nutritionniste cabinet est situé à Caen.</p>
-                <h3>A PROPOS</h3>
+                <p class="fw-normal">Diététicienne-Nutritionniste cabinet à Caen.</p>
+                <h3 class="mt-3 mb-3">A PROPOS</h3>
                 <p class="lead fw-light">
                     En tant que professionnelle de santé, je prends en charge des patients dans le cadre de consultations diététiques.<br>
                     J'anime également des ateliers de prévention et d’information sur la nutrition.
                 </p>
                 <p class="lead fw-light">Au plaisir de vous rencontrer prochainement,</p>
-                <p class="fw-bold">Sandrine Coupart</p>
-                <a class="btn btn-outline-secondary" href="#">Contactez-moi</a>
+                <p class="mt-3 mb-3 fw-bold">Sandrine Coupart</p>
+                <a class="btn btn-primary" href="#">Contactez-moi</a>
             </div>
         </div>
-
+    </main>
         <div class="container py-4">
             <div class="p-5 mb-4 bg-body-tertiary rounded-3">
                 <div class="container-fluid py-5">
                     <h2 class="display-5 fw-bold">Mes recettes</h2>
                     <p class="col-md-8 fs-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in nisi sed ipsum maximus laoreet vitae in arcu. Phasellus non ultricies turpis, sed mollis nibh. Aliquam tristique urna id mauris varius, quis semper ipsum blandit. </p>
-                    <button class="btn btn-primary btn-lg" type="button">Voir les recettes</button>
+                    <a href="{{ path('app_recette') }}"><button class="btn btn-outline-secondary" type="button">Voir les recettes</button></a>
                 </div>
             </div>
 
@@ -47,14 +53,13 @@
                 </div>
                 <div class="col-md-6">
                     <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                        <h3>Consultez mes tarifs</h3>
+                        <h3>Mes services</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in nisi sed ipsum maximus laoreet vitae in arcu. Phasellus non ultricies turpis, sed mollis nibh. Aliquam tristique urna id mauris varius, quis semper ipsum blandit.</p>
-                        <button class="btn btn-outline-secondary" type="button">Mes tarifs</button>
+                        <button class="btn btn-outline-secondary" type="button">Mes services</button>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
     {% block js %}
         <script src="{{ asset('assets/js/SandrineCoupartDieteticienne.js') }}"></script>
     {% endblock %}
