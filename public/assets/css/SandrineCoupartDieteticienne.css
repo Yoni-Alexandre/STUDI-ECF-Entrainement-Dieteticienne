@@ -48,8 +48,29 @@ html, body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 #app canvas {
     display: block;
     position: fixed;
-    /*z-index: -1;*/
     top: 0;
+}
+
+.section-mesServices {
+    background-color: #73628A;
+    color: #fff;
+}
+.bg-h-mesServices {
+    background-color: #73628A;
+}
+
+.bg-d-mesServices {
+    background-color: #EAEAEA;
+    font-family: "Open Sans", sans-serif;
+}
+
+.texte-mesServices {
+    color: #000;
+}
+
+.img-slug {
+
+    width: 30%;
 }
 
 

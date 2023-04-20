@@ -7,12 +7,14 @@
     <meta name="author" content="Yoni-Alexandre Brault">
     <title> {% block title %}Sandrine Coupart - Diététicienne {% endblock %}</title>
 
-    <!-- Bootstrap -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Fontawesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <!-- CSS local -->
-    <link rel="stylesheet" href="{{ asset('assets/css/SandrineCoupartDieteticienne.css') }}">
+
+        <!-- Bootstrap -->
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+        <!-- CSS local -->
+        <link rel="stylesheet" href="{{ asset('assets/css/SandrineCoupartDieteticienne.css') }}">
+
 </head>
 <body>
 
@@ -32,10 +34,10 @@
                 <a class="nav-link" href="{{ path('app_recette') }}">Les recettes<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Tarifs<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/mes-services/#tarifs">Tarifs<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Qui suis je ?<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('app_mes_services') }}">Mes services<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">Contact<span class="sr-only">(current)</span></a>
@@ -68,7 +70,7 @@
         <div class="col-6 col-md">
             <h5>À propos</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                <li><a class="link-secondary" href="/#apropos">A propos de moi</a></li>
             </ul>
         </div>
         <div class="col-6 col-md">

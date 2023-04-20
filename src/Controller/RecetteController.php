@@ -24,4 +24,12 @@ class RecetteController extends AbstractController
             'recette' => $recette,
         ]);
     }
+
+    #[Route('/recette/{slug}', name: 'app_slugRecettes')]
+    public function slugRecettes(Recette $slugRecettes): Response
+    {
+        return $this->render('recette/slugRecettes.html.twig', [
+            'slugRecettes' => $slugRecettes,
+        ]);
+    }
 }

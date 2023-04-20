@@ -3,27 +3,42 @@
 {% block title %}Sandrine Coupart - Recette{% endblock %}
 
 {% block body %}
+
     <div class="container mt-5 mb-5">
         <div class="row">
 
             {% for recette in recette %}
                 <div class="col-4 mb-4">
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ asset('uploads/images/taco-gdb450d472_1920.png') }}" alt="Card image cap">
+
+                        <svg class="img-card card-img-top"
+                             style="
+                                background: url('/uploads/images/{{ recette.image }}');
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                width: 100%;
+                             ">
+                        </svg>
+
                         <div class="card-body">
-                            {% if recette.estPrivee == 1 %}
+                            {% if recette.estPrivee == 0 %}
                                 <h1>Recette privée</h1>
                             {% else %}
-                                <h5 class="card-title">{{ recette.titre }}</h5>
+                                <h3 class="card-title">{{ recette.titre }}</h3>
                                 <p class="mt-2 card-text">{{ recette.description }}</p>
-                                <h4 class="mt-4">Temps de préparation : </h4>
+                                <h5 class="mt-4">Temps de préparation : </h5>
                                 <p>{{ recette.tempsPreparation }} minutes</p>
-                                <h4 class="mt-4">Temps de cuisson : </h4>
+                                <h5 class="mt-4">Temps de cuisson : </h5>
                                 <p>{{ recette.tempsCuisson }} minutes</p>
-                                <h4 class="mt-4">Temps de repos : </h4>
+                                <h5 class="mt-4">Temps de repos : </h5>
                                 <p>{{ recette.tempsRepos }} minutes</p>
                             {% endif %}
-                            <a href="#" class="mt-4 btn btn-primary">En savoir plus</a>
+
+                            <div class="text-center">
+                                <a href="{{ path('app_slugRecettes', {'slug' : recette.slug }) }}" class="mt-4 btn btn-primary">En savoir plus</a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
