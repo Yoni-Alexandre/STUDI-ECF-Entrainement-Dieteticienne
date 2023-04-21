@@ -69,8 +69,14 @@ html, body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 }
 
 .img-slug {
-
     width: 30%;
+}
+
+/* **** FOOTER **** */
+footer {
+    position:absolute;
+    bottom: auto;
+    width:100%;
 }
 
 
