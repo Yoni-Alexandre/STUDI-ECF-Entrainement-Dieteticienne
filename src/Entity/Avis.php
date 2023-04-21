@@ -29,6 +29,14 @@ class Avis
     private ?Recette $recette = null;
 
 
+//    EN TEST
+    public function __toString(): string
+    {
+        $note = $this->note;
+        $commentaire = $this->commentaire;
+        return "$note $commentaire";
+//        return $this->note;
+    }
     public function getId(): ?int
     {
         return $this->id;

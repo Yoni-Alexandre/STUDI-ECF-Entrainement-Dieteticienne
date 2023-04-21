@@ -21,11 +21,8 @@ class AvisCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->onlyOnIndex(),
             TextareaField::new('commentaire'),
             IntegerField::new('note'),
-            IntegerField::new('user'),
-            IntegerField::new('recette'),
 
         ];
     }

@@ -39,9 +39,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Avis::class, orphanRemoval: true)]
     private Collection $avis;
 
+    #[ORM\OneToMany(mappedBy: 'allergene', targetEntity: Allergene::class)]
+    private Collection $allergene;
+
     public function __construct()
     {
         $this->avis = new ArrayCollection();
+        $this->allergene = new ArrayCollection();
     }
 
 
@@ -193,6 +197,36 @@ public function removeAvi(Avis $avi): self
         // set the owning side to null (unless already changed)
         if ($avi->getUser() === $this) {
             $avi->setUser(null);
+        }
+    }
+
+    return $this;
+}
+
+/**
+ * @return Collection<int, Allergene>
+ */
+public function getAllergene(): Collection
+{
+    return $this->allergene;
+}
+
+public function addAllergene(Allergene $allergene): self
+{
+    if (!$this->allergene->contains($allergene)) {
+        $this->allergene->add($allergene);
+        $allergene->setAllergene($this);
+    }
+
+    return $this;
+}
+
+public function removeAllergene(Allergene $allergene): self
+{
+    if ($this->allergene->removeElement($allergene)) {
+        // set the owning side to null (unless already changed)
+        if ($allergene->getAllergene() === $this) {
+            $allergene->setAllergene(null);
         }
     }
 

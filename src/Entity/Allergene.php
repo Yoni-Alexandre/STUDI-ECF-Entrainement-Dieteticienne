@@ -21,9 +21,17 @@ class Allergene
     #[ORM\OneToMany(mappedBy: 'allergene', targetEntity: RecetteAllergene::class)]
     private Collection $recetteAllergene;
 
+    #[ORM\ManyToOne(inversedBy: 'allergene')]
+    private ?User $allergene = null;
+
     public function __construct()
     {
         $this->recetteAllergene = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return $this->nom;
     }
 
     public function getId(): ?int
@@ -69,6 +77,18 @@ class Allergene
                 $recetteAllergene->setAllergene(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAllergene(): ?User
+    {
+        return $this->allergene;
+    }
+
+    public function setAllergene(?User $allergene): self
+    {
+        $this->allergene = $allergene;
 
         return $this;
     }
