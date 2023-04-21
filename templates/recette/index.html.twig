@@ -13,18 +13,16 @@
 
                         <svg class="img-card card-img-top"
                              style="
-                                background: url('/uploads/images/{{ recette.image }}');
-                                background-size: cover;
-                                background-position: center;
-                                background-repeat: no-repeat;
-                                width: 100%;
-                             ">
+                                     background: url('/uploads/images/{{ recette.image }}');
+                                     background-size: cover;
+                                     background-position: center;
+                                     background-repeat: no-repeat;
+                                     width: 100%;
+                                     ">
                         </svg>
 
                         <div class="card-body">
-                            {% if recette.estPrivee == 0 %}
-                                <h1>Recette privée</h1>
-                            {% else %}
+                            {% if recette.estPrivee == 1 %}
                                 <h3 class="card-title">{{ recette.titre }}</h3>
                                 <p class="mt-2 card-text">{{ recette.description }}</p>
                                 <h5 class="mt-4">Temps de préparation : </h5>
@@ -33,10 +31,23 @@
                                 <p>{{ recette.tempsCuisson }} minutes</p>
                                 <h5 class="mt-4">Temps de repos : </h5>
                                 <p>{{ recette.tempsRepos }} minutes</p>
+                            {% elseif recette.estPrivee == 0 and app.user %}
+                                <h3 class="card-title">{{ recette.titre }}</h3>
+                                <p class="mt-2 card-text">{{ recette.description }}</p>
+                                <h5 class="mt-4">Temps de préparation : </h5>
+                                <p>{{ recette.tempsPreparation }} minutes</p>
+                                <h5 class="mt-4">Temps de cuisson : </h5>
+                                <p>{{ recette.tempsCuisson }} minutes</p>
+                                <h5 class="mt-4">Temps de repos : </h5>
+                                <p>{{ recette.tempsRepos }} minutes</p>
+                            {% else %}
+                                <h1>Recette privée</h1>
                             {% endif %}
 
                             <div class="text-center">
-                                <a href="{{ path('app_slugRecettes', {'slug' : recette.slug }) }}" class="mt-4 btn btn-primary">En savoir plus</a>
+                                {% if recette.estPrivee == 1 or app.user %}
+                                    <a href="{{ path('app_slugRecettes', {'slug' : recette.slug }) }}" class="mt-4 btn btn-primary">En savoir plus</a>
+                                {% endif %}
                             </div>
 
                         </div>
@@ -45,4 +56,5 @@
             {% endfor %}
         </div>
     </div>
+
 {% endblock %}
