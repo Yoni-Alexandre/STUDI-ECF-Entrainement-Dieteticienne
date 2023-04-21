@@ -47,10 +47,10 @@
 
             {# Si l'utilisateur est connecté #}
             {% if app.user %}
-                <a class="btn btn-primary" href="#" role="button">Mon compte <small>({#  {{ app.user.firstname } }#})</small></a>
+                <a class="btn btn-primary" href="#" role="button">Mon compte <small>(  {{ app.user.nom }})</small></a>
                 <a class="btn btn-primary" href="#" role="button">Déconnexion</a>
             {% else %}
-                <a class="btn btn-primary" href="#" role="button">Connexion</a>
+                <a class="btn btn-primary" href="{{ path('app_login') }}" role="button">Connexion</a>
                 <a class="btn btn-primary" href="{{ path('app_register') }}" role="button">Inscription</a>
             {% endif %}
         </div>
