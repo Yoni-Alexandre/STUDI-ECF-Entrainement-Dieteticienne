@@ -26,7 +26,7 @@ class AvisType extends AbstractType
                 'label' => 'Note',
             ])
             ->add('commentaire', TextareaType::class, [
-                'label' => 'Commentaire',
+                'label' => 'Laisser un Commentaire',
             ]);
     }
 

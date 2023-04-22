@@ -23,17 +23,19 @@ class AvisController extends AbstractController
     {
         $avis = new Avis();
         $avis->setRecette($recette);
+        $avis->setUser($this->getUser());
+
         $form = $this->createForm(AvisType::class, $avis);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-        $this->entityManager->persist($avis);
+            $this->entityManager->persist($avis);
             $this->entityManager->flush();
 
-        return $this->redirectToRoute('app_accueil', ['id' => $recette->getId()]);
+        return $this->redirectToRoute('app_account', ['id' => $recette->getId()]);
         }
 
-        return $this->render('avis/nouveau.html.twig', [
+        return $this->render('avis/evaluerRecette.html.twig', [
         'recette' => $recette,
         'form' => $form->createView(),
         ]);
