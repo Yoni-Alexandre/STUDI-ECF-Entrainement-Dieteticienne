@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Laisser un avis</h1>
+
+{#    {{ form_start(form) }}#}
+{#    {{ form_label(form.) }}#}
+{#    {{ form_widget(form.name) }}#}
+{#    {{ form_errors(form.name) }}#}
+
+{#    {{ form_label(form.email) }}#}
+{#    {{ form_widget(form.email) }}#}
+{#    {{ form_errors(form.email) }}#}
+
+{#    {{ form_label(form.rating) }}#}
+{#    {{ form_widget(form.rating) }}#}
+{#    {{ form_errors(form.rating) }}#}
+
+{#    {{ form_label(form.comment) }}#}
+{#    {{ form_widget(form.comment) }}#}
+{#    {{ form_errors(form.comment) }}#}
+
+{#    <button type="submit">Envoyer</button>#}
+{#    {{ form_end(form) }}#}
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">Envoyer</button>
+        {{ form_end(form) }}
+
+
+{% endblock %}
