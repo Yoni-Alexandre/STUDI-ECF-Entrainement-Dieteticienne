@@ -35,7 +35,9 @@
             <p class="mb-5">
                 {{ slugRecettes.tempsCuisson }} minutes
             </p>
-
+            <hr>
+            <h4>Donner votre avis sur cette recette</h4>
+            <a href="{{ path('avis_nouveau', {'id' : slugRecettes.id }) }}"><button type="submit" class="btn btn-primary mb-5">Donner votre avis</button></a>
         </div>
     </div>
 </div>
