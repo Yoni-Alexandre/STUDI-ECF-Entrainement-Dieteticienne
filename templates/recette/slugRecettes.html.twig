@@ -36,8 +36,17 @@
                 {{ slugRecettes.tempsCuisson }} minutes
             </p>
             <hr>
+            {% if app.user %}
             <h4>Donner votre avis sur cette recette</h4>
-            <a href="{{ path('avis_nouveau', {'id' : slugRecettes.id }) }}"><button type="submit" class="btn btn-primary mb-5">Donner votre avis</button></a>
+            <a href="{{ path('avis_nouveau', {'id' : slugRecettes.id }) }}">
+                <button type="submit" class="btn btn-primary mt-5 mb-5">Donner votre avis</button>
+            </a>
+            {% else %}
+            <h4>Connectez-vous pour donner votre avis sur cette recette</h4>
+            <a href="{{ path('app_login') }}">
+                <button type="submit" class="btn btn-primary mt-5 mb-5">Se connecter</button>
+            </a>
+            {% endif %}
         </div>
     </div>
 </div>
