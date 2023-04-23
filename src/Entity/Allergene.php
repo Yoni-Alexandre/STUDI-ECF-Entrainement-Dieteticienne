@@ -24,9 +24,13 @@ class Allergene
     #[ORM\ManyToOne(inversedBy: 'allergene')]
     private ?User $allergene = null;
 
+    #[ORM\OneToMany(mappedBy: 'allergene', targetEntity: Recette::class)]
+    private Collection $recette;
+
     public function __construct()
     {
         $this->recetteAllergene = new ArrayCollection();
+        $this->recette = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -89,6 +93,36 @@ class Allergene
     public function setAllergene(?User $allergene): self
     {
         $this->allergene = $allergene;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recette>
+     */
+    public function getRecette(): Collection
+    {
+        return $this->recette;
+    }
+
+    public function addRecette(Recette $recette): self
+    {
+        if (!$this->recette->contains($recette)) {
+            $this->recette->add($recette);
+            $recette->setAllergene($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecette(Recette $recette): self
+    {
+        if ($this->recette->removeElement($recette)) {
+            // set the owning side to null (unless already changed)
+            if ($recette->getAllergene() === $this) {
+                $recette->setAllergene(null);
+            }
+        }
 
         return $this;
     }

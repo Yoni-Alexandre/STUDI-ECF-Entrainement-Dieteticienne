@@ -30,7 +30,7 @@ class RecetteCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads/images')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
-            AssociationField::new('recetteAllergene', 'Allergènes'),
+            AssociationField::new('allergene', 'Allergènes'),
             SlugField::new('slug', 'Slug')
                 ->setTargetFieldName('titre'),
             IntegerField::new('tempsPreparation', 'Temps de préparation'),
