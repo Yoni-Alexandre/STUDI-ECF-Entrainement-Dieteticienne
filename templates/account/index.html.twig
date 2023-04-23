@@ -8,8 +8,17 @@
             <div class="col-md-12">
                 <h1>Mon compte</h1>
                 <p class="mt-5">Bienvenue sur votre compte {{ app.user.prenom }} !</p><br>
-                <p>Vous pouvez donner votre avis en cliquant sur le bouton ci-dessous</p>
-                <a href="#" class="btn btn-primary mt-3 mb-5">Voir vos avis</a>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <p>Vous êtes administrateur, Vous pouvez-vous connecter à l'administration en cliquant sur le bouton ci-dessous : </p>
+                    <a href="{{ path('admin') }}" class="btn btn-primary mt-3 mb-5" target="_blank">
+                        Administration
+                    </a>
+
+                {% endif %}
+                <p>Vous pouvez donner votre avis en cliquant sur le bouton ci-dessous : </p>
+                <a href="#" class="btn btn-primary mt-3 mb-5">
+                    Voir les avis que vous avez postés
+                </a>
             </div>
         </div>
     </div>
