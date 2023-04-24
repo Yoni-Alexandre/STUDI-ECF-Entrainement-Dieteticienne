@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Allergene;
 use App\Entity\Avis;
 use App\Entity\Recette;
+use App\Entity\RecetteAllergene;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -39,6 +40,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Utilisateur', 'fa fa-user', User::class);
         yield MenuItem::linkToCrud('Recette', 'fa fa-utensils', Recette::class);
         yield MenuItem::linkToCrud('Allergènes', 'fa fa-utensils', Allergene::class);
-        yield MenuItem::linkToCrud('Avis', 'fa fa-flag', Avis::class);
+        yield MenuItem::linkToCrud('Avis des clients', 'fa fa-flag', Avis::class);
     }
 }

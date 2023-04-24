@@ -23,6 +23,9 @@ class RecetteAllergene
     #[ORM\ManyToOne(inversedBy: 'recetteAllergene')]
     private ?Allergene $allergene = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $nom = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class RecetteAllergene
     public function setAllergene(?Allergene $allergene): self
     {
         $this->allergene = $allergene;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(?string $nom): self
+    {
+        $this->nom = $nom;
 
         return $this;
     }

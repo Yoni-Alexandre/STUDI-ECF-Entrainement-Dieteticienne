@@ -55,6 +55,9 @@ class Recette
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
+    #[ORM\ManyToOne(inversedBy: 'recette')]
+    private ?Allergene $allergene = null;
+
     public function __construct()
     {
         $this->avis = new ArrayCollection();
@@ -273,6 +276,18 @@ class Recette
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getAllergene(): ?Allergene
+    {
+        return $this->allergene;
+    }
+
+    public function setAllergene(?Allergene $allergene): self
+    {
+        $this->allergene = $allergene;
 
         return $this;
     }
