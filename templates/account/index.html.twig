@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine Coupart - Mon compte{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Mon compte</h1>
+                <p class="mt-5">Bienvenue sur votre compte {{ app.user.prenom }} !</p><br>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <p>Vous êtes administrateur, Vous pouvez-vous connecter à l'administration en cliquant sur le bouton ci-dessous : </p>
+                    <a href="{{ path('admin') }}" class="btn btn-primary mt-3 mb-5" target="_blank">
+                        Administration
+                    </a>
+                {% endif %}
+                <p>Vous pouvez indiquer vos régime</p>
+                <a href="{{ path('app_regime') }}" class="btn btn-primary mt-3 mb-5">
+                    Régime
+                </a>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

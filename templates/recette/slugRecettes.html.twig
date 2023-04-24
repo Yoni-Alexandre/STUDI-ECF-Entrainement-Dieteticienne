@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine Coupart - {{ slugRecettes.titre }}{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+    <div>
+        <div>
+            <img src="/uploads/images/{{ slugRecettes.image }}" alt="{{ slugRecettes.titre }}" class="img-slug  img-fluid">
+        </div>
+        <div>
+            <h3>{{ slugRecettes.titre }}</h3>
+            <hr>
+            <h4 class="p-3 mb-2 bg-danger text-white">Allergènes : </h4>
+            {% if slugRecettes.allergene == null %}
+            <p class="p-3 mb-2 bg-danger text-white">Sans allergène(s)</p>
+            {% else %}
+            <p class="p-3 mb-2 bg-danger text-white">{{ slugRecettes.allergene }}</p>
+            {% endif %}
+            <hr>
+            <h4>Description</h4><br>
+            <p>
+                {{ slugRecettes.description }}
+            </p>
+            <hr>
+            <h4>Les étapes</h4><br>
+            <p>
+                {{ slugRecettes.etapes }}
+            </p>
+            <hr>
+            <h4>Ingrédients</h4><br>
+            <p>
+                {{ slugRecettes.ingredients }}
+            </p>
+            <hr>
+            <h4>temps de préparation</h4><br>
+            <p>
+                {{ slugRecettes.tempsPreparation }} minutes
+            </p>
+            <hr>
+            <h4>temps de cuisson</h4><br>
+            <p>
+                {{ slugRecettes.tempsCuisson }} minutes
+            </p>
+            <hr>
+            {% if app.user %}
+            <h4>Donner votre avis sur cette recette</h4>
+            <a href="{{ path('avis_nouveau', {'id' : slugRecettes.id }) }}">
+                <button type="submit" class="btn btn-primary mt-5 mb-5">Donner votre avis</button>
+            </a>
+            {% else %}
+            <h4>Connectez-vous pour donner votre avis sur cette recette</h4>
+            <a href="{{ path('app_login') }}">
+                <button type="submit" class="btn btn-primary mt-5 mb-5">Se connecter</button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
