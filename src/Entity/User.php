@@ -56,7 +56,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->getPrenom() . ' ' . $this->getNom();
     }
 
-
 //    #[ORM\Column(type: Types::DATE_MUTABLE)]
 //    private ?\DateTimeInterface $dateDeNaissance = null;
 

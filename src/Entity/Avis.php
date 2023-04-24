@@ -28,8 +28,6 @@ class Avis
     #[ORM\JoinColumn(nullable: true)]
     private ?Recette $recette = null;
 
-
-//    EN TEST
     public function __toString(): string
     {
         return $this->note;

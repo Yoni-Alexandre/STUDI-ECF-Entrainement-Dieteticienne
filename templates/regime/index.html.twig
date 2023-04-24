@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine Coupart - Régimes{% endblock %}
+
+{% block body %}
+        <div class="container">
+            <h1>Régime</h1>
+            <div class="row">
+                <div class="col-12">
+                    <form>
+                        <label for="regime">Choisissez un régime :</label>
+                        <select name="regime" id="regime">
+                            {% for regime in regimes %}
+                                <option value="{{ regime.id }}">{{ regime.nom }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}
