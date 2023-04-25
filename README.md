@@ -94,6 +94,6 @@ Ce site web a été développé en utilisant les technologies suivantes :
 
 - Si problème, supprimer la base de données et recommencer les étapes ci-dessus
 
-```DROP DATABASE studi_le_quai_antique;```
+```DROP DATABASE studi_dieteticienne;```
 
 - se rendre sur la page "Mon compte" et cliquer sur "Console d'administration" pour pouvoir integrer des données sur le site.
