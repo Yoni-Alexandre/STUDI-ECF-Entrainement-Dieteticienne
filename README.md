@@ -71,7 +71,7 @@ Ce site web a été développé en utilisant les technologies suivantes :
 
 - Repmlir le mot de passe demandé (touche Entrée s'il n'y a pas de mot de passe dans le .env de l'application symfony)
 
-- Se connecter à la base de données (nom inscrit dans le .env, pour ma part le nom de ma base est "studi_le_quai_antique")
+- Se connecter à la base de données (nom inscrit dans le .env, pour ma part le nom de ma base est "studi_dieteticienne")
 - Pour voir les base de données existantes (SHOW DATABASES;)
 
 ```USE studi_dieteticienne;```
@@ -86,7 +86,7 @@ Ce site web a été développé en utilisant les technologies suivantes :
 
 - Créer un administrateur dans la table "users" en lui donnant le role "ROLE_ADMIN"
 
-```INSERT INTO users (email, roles, password, lastname, firstname) VALUES ('admin@studi-sandrine-coupart.ybr', '[\"ROLE_ADMIN"\]', '$2y$13$RztYrnXRCgAeF5r6PTBnjOQ7uvGXSTeaQhNUKKers.8JEQHn7EyEG', 'Admin', 'Le Quai Antique');```
+```INSERT INTO users (email, roles, password, lastname, firstname) VALUES ('admin@studi-sandrine-coupart.ybr', '[\"ROLE_ADMIN"\]', '$2y$13$RztYrnXRCgAeF5r6PTBnjOQ7uvGXSTeaQhNUKKers.8JEQHn7EyEG', 'Admin', 'admin-dieteticienne');```
 
 - Le mot de passe crypté correspond à "123456"
 
