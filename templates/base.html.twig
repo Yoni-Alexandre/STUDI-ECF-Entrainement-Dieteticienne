@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Découvrez l'univers culinaire du chef Arnaud Michant au Quai Antique, un restaurant situé à Chambéry et proposant une cuisine savoureuse inspirée des produits de la Savoie. Réservez votre table en ligne et vivez une expérience gastronomique inoubliable.">
+    <meta name="author" content="Yoni-Alexandre Brault">
+    <title> {% block title %}Sandrine Coupart - Diététicienne {% endblock %}</title>
+
+
+        <!-- Bootstrap -->
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+        <!-- CSS local -->
+        <link rel="stylesheet" href="{{ asset('assets/css/SandrineCoupartDieteticienne.css') }}">
+
+</head>
+<body>
+
+{# **** HEADER ****#}
+<nav class="sticky-top navbar-custom navbar navbar-expand-lg navbar-light mt-2 ">
+    <a class="logo navbar-brand" href="{{ path('app_accueil') }}">Sandrine Coupart</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-bar-sc nav-link" href="{{ path('app_accueil') }}">Accueil<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-bar-sc nav-item active">
+                <a class="nav-bar-sc nav-link" href="{{ path('app_recette') }}">Les recettes<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-bar-sc nav-link" href="/mes-services/#tarifs">Tarifs<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-bar-sc nav-link" href="{{ path('app_mes_services') }}">Mes services<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-bar-sc nav-link" href="{{path('app_contact')}}">Contact<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <div class="navbar-item-custom">
+
+            {# Si l'utilisateur est connecté #}
+            {% if app.user %}
+                <a class="btn btn-primary" href="{{ path('app_account') }}" role="button">Mon compte <small>( {{ app.user.nom }} )</small></a>
+                <a class="btn btn-primary" href="{{ path('app_logout') }}" role="button">Déconnexion</a>
+            {% else %}
+                <a class="btn btn-primary" href="{{ path('app_login') }}" role="button">Connexion</a>
+                <a class="btn btn-primary" href="{{ path('app_register') }}" role="button">Inscription</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+{% block body %}
+{% endblock %}
+
+{# **** FOOTER **** #}
+<footer class="text-center footer-color-section py-5">
+    <div class="row">
+        <div class="ml-5 col-12 col-md">
+            <h5 class="logo">Sandrine Coupart</h5>
+            <small class="nav-bar-sc d-block mb-3 text-body-secondary">Yoni-Alexandre Brault ©2023</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5 class="nav-bar-sc">À propos</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary" href="/#apropos">A propos de moi</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Mes services</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary" href="{{ path('app_recette') }}">Les recettes</a></li>
+                <li><a class="link-secondary" href="#">Les astuces</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5 class="nav-bar-sc">Contact</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary" href="{{path('app_contact')}}">Contactez-moi</a></li>
+            </ul>
+        </div>
+        <div class="mr-5 col-6 col-md">
+            <h5 class="nav-bar-sc">Mentions légales </h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary" href="{{ path('app_mentions_legales') }}">Mentions légales</a></li>
+                <li><a class="link-secondary" href="{{ path('app_rgpd') }}">Politique de confidentialité</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+{% block js %}
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+{% endblock %}
+    </body>
+</html>

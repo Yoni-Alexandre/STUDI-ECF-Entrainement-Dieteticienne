@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine Coupart - Régimes{% endblock %}
+
+{% block body %}
+    <main class="justify-content-center container">
+        <section class="row">
+            <div class="col-12">
+                <h1>Les régimes</h1>
+            </div>
+            {% for regime in regimes %}
+                <div class="col-4 text-center">
+                    <div class="animation-card card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ regime.nom}}</h3>
+                            <a href="{{ path('app_regime_show', {'id': regime.id}) }}" class="btn btn-primary">Voir nos plats</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}

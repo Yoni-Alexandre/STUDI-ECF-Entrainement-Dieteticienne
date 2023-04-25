@@ -1,0 +1,113 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600&family=Noto+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Reenie+Beanie&display=swap');
+
+/* COULEURS DU SITE */
+/* https://coolors.co/f3f3f7-609a7d-dc9a7d-bdb9b3-0c0920 */
+
+html, body, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans", sans-serif;
+}
+
+body {
+    background-color: #F3F3F7;
+}
+h1, h2, h3, h4, h5, h6, b {
+    margin: 0;
+    padding: 0;
+    font-family: "baloo bhaina 2", sans-serif;
+}
+
+.logo {
+    font-family: "Reenie Beanie", sans-serif;
+}
+.nav-bar-sc {
+    font-family: "baloo bhaina 2", sans-serif;
+}
+.navbar-custom {
+    background-color: #F3F3F7;
+}
+
+.presentation {
+    color: #fff;
+}
+
+.container-color {
+    background-color: #DC9A7D;
+    /*color: white;*/
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.colorSection {
+    background-color: #F3F3F7;
+    font-family: "Reenie Beanie", sans-serif;
+}
+
+#app {
+    font-family: "Reenie Beanie", sans-serif;
+    text-align: center;
+}
+
+#app h1 {
+    --fontSize: 60px;
+    --lineHeight: 80px;
+    width: auto;
+    height: calc(2 * var(--lineHeight));
+    line-height: var(--lineHeight);
+    margin: calc(10vh - var(--lineHeight)) auto 0;
+    font-size: var(--fontSize);
+    text-transform: uppercase;
+}
+
+#app canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+}
+
+/* **** SERVICES **** */
+.section-mesServices {
+    background-color: #0C0920;
+    color: #fff;
+}
+.bg-h-mesServices {
+    background-color: #0C0920;
+}
+
+.bg-d-mesServices {
+    background-color: #DC9A7D;
+    font-family: "Reenie Beanie", sans-serif;
+}
+
+.texte-mesServices {
+    color: #000;
+}
+
+.img-slug {
+    width: 30%;
+}
+
+/* **** FOOTER **** */
+footer {
+    position:absolute;
+    bottom: auto;
+    width:100%;
+}
+
+.footer-color-section {
+    background-color: #BDB9B3;
+}
+
+
+
+

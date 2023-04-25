@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine Coupart - Mes Services{% endblock %}
+
+{% block body %}
+
+    <div class="bg-d-mesServices position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 font-weight-normal">Mes services</h1>
+            <h3 >Pourquoi consulter une diététicienne?</h3>
+            <p class="lead font-weight-normal mt-3 mb-3">Je vous propose de mettre l’alimentation au cœur de votre santé et vous accompagner :</p>
+            <p class="mb-2">Pour adapter votre alimentation à une pathologie (diabète, maladies cardio vasculaires, allergies alimentaires, pathologies digestives etc…)</p>
+            <p class="mb-2">Pour votre perte de poids sans régime ni frustrations, juste en équilibrant vos apports et vous connectant à vos sensations alimentaires.</p>
+            <p class="mb-2">Pour répondre à vos questions sur les besoins nutritionnels de votre enfant, pendant la grossesse, à la ménopause, en cas d’horaires décalés au travail, si vous êtes végétarien, végétalien.</p>
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </div>
+
+    <div class="container">
+        <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+            <div class="bg-h-mesServices mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                <div class="my-3 py-3">
+                    <h2 class="display-5">Les consultations</h2>
+                    <p class="lead">Consultations de bilan et suivi.</p>
+                </div>
+                <div class="bg-d-mesServices shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+            </div>
+
+            <div class="bg-d-mesServices mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                <div class="my-3 p-3">
+                    <h2 class="display-5">Lorem ipsum dolo</h2>
+                    <p class="lead">Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="bg-h-mesServices shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+            </div>
+
+            <div class="bg-h-mesServices mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                <div class="my-3 p-3">
+                    <h2 class="display-5">Lorem ipsum dolo</h2>
+                    <p class="lead">Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="bg-d-mesServices shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+            </div>
+        </div>
+
+        <div></div>
+
+        <div id="tarifs" class="bg-d-mesServices mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden mb-3">
+            <div class="my-3 p-3">
+                <h2 class="display-5">Mes tarifs</h2>
+                <p class="lead">Consultation au cabinet ou en visio</p>
+            </div>
+            <div class="bg-h-mesServices shadow-sm mx-auto"  style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                <img src="{{ asset('uploads/images/Honoraires.jpg') }}" alt="Logo Sandrine Coupart Diététicienne" class="img-fluid w-100 h-100">
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

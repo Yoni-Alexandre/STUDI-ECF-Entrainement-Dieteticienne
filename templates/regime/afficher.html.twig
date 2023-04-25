@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sandrine Coupart - Régimes recettes{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center my-5">Régimes</h1>
+        <div class="row">
+            {% for regime in regimes %}
+                {% set regime_contient_recettes = false %}
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h2>{{ regime.nom }}</h2>
+                        </div>
+                        <div class="card-body">
+                            {% for recette in recettes %}
+                                {% if recette.regime == regime %}
+                                    {% set regime_contient_recettes = true %}
+                                    <h5 class="text-success">{{ recette.titre }}</h5>
+                                    <a href="{{ path('app_slugRecettes', {'slug' : recette.slug }) }}" class="mt-2 mb-4 btn btn-primary">Voir la recette</a>
+                                {% endif %}
+                            {% endfor %}
+                            {% if not regime_contient_recettes %}
+                                <h5 class="font-italic text-dark">Pas de recette(s) actuellement</h5>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
